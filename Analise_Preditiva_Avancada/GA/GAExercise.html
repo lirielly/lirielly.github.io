@@ -13144,7 +13144,7 @@ Senha Gabarito <input id="numb">
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">caret</span><span class="p">)</span>
@@ -13160,11 +13160,11 @@ Senha Gabarito <input id="numb">
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">p</span> <span class="o">&lt;-</span> <span class="s">&quot;C:/Users/01551610/Desktop/rbarsotti.github.io/GA/GA_Exercise.csv&quot;</span>
-<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="n">file</span><span class="o">=</span> <span class="n">p</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;;&quot;</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">p</span> <span class="o">&lt;-</span> <span class="s">&quot;./Analise_Preditiva_Avancada/GA/BostonCreditExercise.csv&quot;</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="n">file</span><span class="o">=</span> <span class="n">p</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;,&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13174,7 +13174,7 @@ Senha Gabarito <input id="numb">
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -13196,27 +13196,52 @@ Senha Gabarito <input id="numb">
 
 <div class="output_html rendered_html output_subarea ">
 <table>
-<caption>A df[,15]: 6 × 15</caption>
-<thead>
-	<tr><th scope=col>AGE</th><th scope=col>WORKCLASS</th><th scope=col>FNLWGT</th><th scope=col>EDUCATION</th><th scope=col>EDU_NUM</th><th scope=col>MARITAL_STATUS</th><th scope=col>OCCUPATION</th><th scope=col>RELATIONSHIP</th><th scope=col>RACE</th><th scope=col>SEX</th><th scope=col>CAPITAL_GAIN</th><th scope=col>CAPITAL_LOSS</th><th scope=col>HOURS_PER_WEEK</th><th scope=col>COUNTRY</th><th scope=col>INCOME</th></tr>
-	<tr><th scope=col>&lt;int&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
-</thead>
+<thead><tr><th scope=col>GENDER</th><th scope=col>AGE</th><th scope=col>DEBT</th><th scope=col>MARRIED</th><th scope=col>BANK_CUSTOMER</th><th scope=col>EDUCATION_LEVEL</th><th scope=col>YEARS_EMPLOYED</th><th scope=col>PRIOR_DEFAULT</th><th scope=col>EMPLOYED</th><th scope=col>CITIZEN</th><th scope=col>INCOME</th><th scope=col>APPROVED</th></tr></thead>
 <tbody>
-	<tr><td>39</td><td> State_gov       </td><td> 77516</td><td> Bachelors</td><td>13</td><td> Never_married     </td><td> Adm_clerical     </td><td> Not_in_family</td><td> White</td><td> Male  </td><td>2174</td><td>0</td><td>40</td><td> United_States</td><td>B</td></tr>
-	<tr><td>50</td><td> Self_emp_not_inc</td><td> 83311</td><td> Bachelors</td><td>13</td><td> Married_civ_spouse</td><td> Exec_managerial  </td><td> Husband      </td><td> White</td><td> Male  </td><td>   0</td><td>0</td><td>13</td><td> United_States</td><td>B</td></tr>
-	<tr><td>38</td><td> Private         </td><td>215646</td><td> HS_grad  </td><td> 9</td><td> Divorced          </td><td> Handlers_cleaners</td><td> Not_in_family</td><td> White</td><td> Male  </td><td>   0</td><td>0</td><td>40</td><td> United_States</td><td>B</td></tr>
-	<tr><td>53</td><td> Private         </td><td>234721</td><td> 11th     </td><td> 7</td><td> Married_civ_spouse</td><td> Handlers_cleaners</td><td> Husband      </td><td> Black</td><td> Male  </td><td>   0</td><td>0</td><td>40</td><td> United_States</td><td>B</td></tr>
-	<tr><td>28</td><td> Private         </td><td>338409</td><td> Bachelors</td><td>13</td><td> Married_civ_spouse</td><td> Prof_specialty   </td><td> Wife         </td><td> Black</td><td> Female</td><td>   0</td><td>0</td><td>40</td><td> Cuba         </td><td>B</td></tr>
-	<tr><td>37</td><td> Private         </td><td>284582</td><td> Masters  </td><td>14</td><td> Married_civ_spouse</td><td> Exec_managerial  </td><td> Wife         </td><td> White</td><td> Female</td><td>   0</td><td>0</td><td>40</td><td> United_States</td><td>B</td></tr>
+	<tr><td>1    </td><td>30.83</td><td>0.000</td><td>0    </td><td>1    </td><td>w    </td><td>1.25 </td><td>1    </td><td>1    </td><td>1    </td><td>  0  </td><td>Yes  </td></tr>
+	<tr><td>0    </td><td>58.67</td><td>4.460</td><td>0    </td><td>1    </td><td>q    </td><td>3.04 </td><td>1    </td><td>1    </td><td>1    </td><td>560  </td><td>Yes  </td></tr>
+	<tr><td>0    </td><td>24.50</td><td>0.500</td><td>0    </td><td>1    </td><td>q    </td><td>1.50 </td><td>1    </td><td>0    </td><td>1    </td><td>824  </td><td>Yes  </td></tr>
+	<tr><td>1    </td><td>27.83</td><td>1.540</td><td>0    </td><td>1    </td><td>w    </td><td>3.75 </td><td>1    </td><td>1    </td><td>1    </td><td>  3  </td><td>Yes  </td></tr>
+	<tr><td>1    </td><td>20.17</td><td>5.625</td><td>0    </td><td>1    </td><td>w    </td><td>1.71 </td><td>1    </td><td>0    </td><td>0    </td><td>  0  </td><td>Yes  </td></tr>
+	<tr><td>1    </td><td>32.08</td><td>4.000</td><td>0    </td><td>1    </td><td>m    </td><td>2.50 </td><td>1    </td><td>0    </td><td>1    </td><td>  0  </td><td>Yes  </td></tr>
 </tbody>
 </table>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">df</span><span class="p">[,</span><span class="m">-12</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+	
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr><th scope=col>GENDER</th><th scope=col>AGE</th><th scope=col>DEBT</th><th scope=col>MARRIED</th><th scope=col>BANK_CUSTOMER</th><th scope=col>EDUCATION_LEVEL</th><th scope=col>YEARS_EMPLOYED</th><th scope=col>PRIOR_DEFAULT</th><th scope=col>EMPLOYED</th><th scope=col>CITIZEN</th><th scope=col>INCOME</th></tr></thead>
+<tbody>
+	<tr><td>1    </td><td>30.83</td><td>0.000</td><td>0    </td><td>1    </td><td>w    </td><td>1.25 </td><td>1    </td><td>1    </td><td>1    </td><td>  0  </td></tr>
+	<tr><td>0    </td><td>58.67</td><td>4.460</td><td>0    </td><td>1    </td><td>q    </td><td>3.04 </td><td>1    </td><td>1    </td><td>1    </td><td>560  </td></tr>
+	<tr><td>0    </td><td>24.50</td><td>0.500</td><td>0    </td><td>1    </td><td>q    </td><td>1.50 </td><td>1    </td><td>0    </td><td>1    </td><td>824  </td></tr>
+	<tr><td>1    </td><td>27.83</td><td>1.540</td><td>0    </td><td>1    </td><td>w    </td><td>3.75 </td><td>1    </td><td>1    </td><td>1    </td><td>  3  </td></tr>
+	<tr><td>1    </td><td>20.17</td><td>5.625</td><td>0    </td><td>1    </td><td>w    </td><td>1.71 </td><td>1    </td><td>0    </td><td>0    </td><td>  0  </td></tr>
+	<tr><td>1    </td><td>32.08</td><td>4.000</td><td>0    </td><td>1    </td><td>m    </td><td>2.50 </td><td>1    </td><td>0    </td><td>1    </td><td>  0  </td></tr>
+</tbody>
+</table>
+</div>
+</div>
 
 </div>
 
-</div>
-
-</div>
-</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -13228,14 +13253,14 @@ Senha Gabarito <input id="numb">
 <span class="nf">options</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="m">-1</span><span class="p">)</span>
 
 <span class="c1"># Particionamentos dos Dados</span>
-<span class="n">trainIndex</span> <span class="o">&lt;-</span> <span class="nf">createDataPartition</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">$</span><span class="n">INCOME</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="m">.7</span><span class="p">,</span><span class="n">list</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="n">trainIndex</span> <span class="o">&lt;-</span> <span class="nf">createDataPartition</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">$</span><span class="n">APPROVED</span><span class="p">,</span><span class="n">p</span><span class="o">=</span><span class="m">.7</span><span class="p">,</span><span class="n">list</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
 
 <span class="n">trainData</span> <span class="o">&lt;-</span> <span class="n">df[trainIndex</span><span class="p">,</span><span class="n">]</span>
 <span class="n">testData</span> <span class="o">&lt;-</span> <span class="n">df[</span><span class="o">-</span><span class="n">trainIndex</span><span class="p">,</span><span class="n">]</span>
 
-<span class="n">trainX</span> <span class="o">&lt;-</span><span class="n">trainData[</span><span class="p">,</span><span class="m">-15</span><span class="n">]</span>
-<span class="n">testX</span> <span class="o">&lt;-</span> <span class="n">testData[</span><span class="p">,</span><span class="m">-15</span><span class="n">]</span>  
-<span class="n">y</span><span class="o">=</span><span class="n">trainData</span><span class="o">$</span><span class="n">INCOME</span>
+<span class="n">trainX</span> <span class="o">&lt;-</span><span class="n">trainData[</span><span class="p">,</span><span class="m">-12</span><span class="n">]</span>
+<span class="n">testX</span> <span class="o">&lt;-</span> <span class="n">testData[</span><span class="p">,</span><span class="m">-12</span><span class="n">]</span>  
+<span class="n">y</span><span class="o">=</span><span class="n">trainData</span><span class="o">$</span><span class="n">APPROVED</span>
 </pre></div>
 
     </div>
@@ -13254,12 +13279,12 @@ Senha Gabarito <input id="numb">
                   <span class="n">summaryFunction</span><span class="o">=</span><span class="n">twoClassSummary</span><span class="p">,</span> <span class="n">classProbs</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 
 
-<span class="n">model</span> <span class="o">&lt;-</span> <span class="nf">train</span><span class="p">(</span><span class="n">INCOME</span><span class="o">~</span><span class="n">.,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">trainData</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;glm&quot;</span><span class="p">,</span> 
-                   <span class="n">metric</span><span class="o">=</span><span class="s">&quot;ROC&quot;</span><span class="p">,</span><span class="n">trControl</span> <span class="o">=</span> <span class="n">cv</span><span class="p">,</span> <span class="n">control</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">maxit</span> <span class="o">=</span> <span class="m">50</span><span class="p">))</span>
+<span class="n">model</span> <span class="o">&lt;-</span> <span class="nf">train</span><span class="p">(</span><span class="n">APPROVED</span><span class="o">~</span><span class="n">.,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">trainData</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;rf&quot;</span><span class="p">,</span> 
+                   <span class="n">trControl</span> <span class="o">=</span> <span class="n">cv</span><span class="p">,</span> <span class="n">control</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">maxit</span> <span class="o">=</span> <span class="m">50</span><span class="p">))</span>
 
 
 <span class="n">pred</span> <span class="o">&lt;-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">model</span> <span class="p">,</span><span class="n">newdata</span><span class="o">=</span><span class="n">testData</span><span class="p">)</span>
-<span class="nf">confusionMatrix</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">pred</span><span class="p">,</span> <span class="n">testData</span><span class="o">$</span><span class="n">INCOME</span><span class="p">)</span>
+<span class="nf">confusionMatrix</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">pred</span><span class="p">,</span> <span class="n">testData</span><span class="o">$</span><span class="n">APPROVED</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13281,29 +13306,29 @@ Senha Gabarito <input id="numb">
 <pre>Confusion Matrix and Statistics
 
           Reference
-Prediction   A   B
-         A  27  18
-         B  22 147
-                                         
-               Accuracy : 0.8131         
-                 95% CI : (0.7543, 0.863)
-    No Information Rate : 0.771          
-    P-Value [Acc &gt; NIR] : 0.08105        
-                                         
-                  Kappa : 0.455          
-                                         
- Mcnemar&#39;s Test P-Value : 0.63526        
-                                         
-            Sensitivity : 0.5510         
-            Specificity : 0.8909         
-         Pos Pred Value : 0.6000         
-         Neg Pred Value : 0.8698         
-             Prevalence : 0.2290         
-         Detection Rate : 0.1262         
-   Detection Prevalence : 0.2103         
-      Balanced Accuracy : 0.7210         
-                                         
-       &#39;Positive&#39; Class : A              
+Prediction No Yes
+       No  66   9
+       Yes  8  61
+                                          
+               Accuracy : 0.8819          
+                 95% CI : (0.8177, 0.9297)
+    No Information Rate : 0.5139          
+    P-Value [Acc &gt; NIR] : &lt;2e-16          
+                                          
+                  Kappa : 0.7636          
+                                          
+ Mcnemar&#39;s Test P-Value : 1               
+                                          
+            Sensitivity : 0.8919          
+            Specificity : 0.8714          
+         Pos Pred Value : 0.8800          
+         Neg Pred Value : 0.8841          
+             Prevalence : 0.5139          
+         Detection Rate : 0.4583          
+   Detection Prevalence : 0.5208          
+      Balanced Accuracy : 0.8817          
+                                          
+       &#39;Positive&#39; Class : No             
                                          </pre>
 </div>
 
@@ -13328,8 +13353,8 @@ Prediction   A   B
                     <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;cv&quot;</span><span class="p">)</span>
 
                      
-<span class="n">obj</span> <span class="o">&lt;-</span> <span class="nf">gafs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">trainData[</span><span class="p">,</span><span class="m">-15</span><span class="n">]</span><span class="p">,</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">trainData</span><span class="o">$</span><span class="n">INCOME</span><span class="p">,</span>
+<span class="n">obj</span> <span class="o">&lt;-</span> <span class="nf">gafs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">trainData[</span><span class="p">,</span><span class="m">-12</span><span class="n">]</span><span class="p">,</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">trainData</span><span class="o">$</span><span class="n">APPROVED</span><span class="p">,</span>
             <span class="n">iters</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span>
             <span class="n">popSize</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span>
             <span class="n">gafsControl</span> <span class="o">=</span> <span class="n">ctrl</span><span class="p">,</span>
@@ -13369,9 +13394,9 @@ Prediction   A   B
 <pre>
 Genetic Algorithm Feature Selection
 
-504 samples
-14 predictors
-2 classes: &#39;A&#39;, &#39;B&#39; 
+340 samples
+11 predictors
+2 classes: &#39;No&#39;, &#39;Yes&#39; 
 
 Maximum generations: 2 
 Population per generation: 2 
@@ -13387,17 +13412,17 @@ Best iteration chose by maximizing external Accuracy
 External resampling method: Cross-Validated (10 fold) 
 
 During resampling:
-  * the top 5 selected variables (out of a possible 14):
-    AGE (100%), CAPITAL_GAIN (100%), COUNTRY (100%), EDU_NUM (100%), EDUCATION (100%)
-  * on average, 12.8 variables were selected (min = 11, max = 14)
+  * the top 5 selected variables (out of a possible 11):
+    INCOME (100%), PRIOR_DEFAULT (100%), YEARS_EMPLOYED (100%), CITIZEN (90%), EDUCATION_LEVEL (90%)
+  * on average, 9.5 variables were selected (min = 6, max = 11)
 
 In the final search using the entire training set:
    * 10 features selected at iteration 1 including:
-     AGE, WORKCLASS, FNLWGT, EDUCATION, EDU_NUM ... 
+     GENDER, AGE, DEBT, MARRIED, BANK_CUSTOMER ... 
    * external performance at this iteration is
 
    Accuracy       Kappa 
-     0.8356      0.4733 
+     0.8674      0.7350
 </pre>
 </div>
 
@@ -13437,18 +13462,18 @@ In the final search using the entire training set:
 
 
 
-<div class="output_html rendered_html output_subarea ">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
 <ol class=list-inline>
+	<li>'GENDER'</li>
 	<li>'AGE'</li>
-	<li>'WORKCLASS'</li>
-	<li>'FNLWGT'</li>
-	<li>'EDUCATION'</li>
-	<li>'EDU_NUM'</li>
-	<li>'OCCUPATION'</li>
-	<li>'SEX'</li>
-	<li>'CAPITAL_GAIN'</li>
-	<li>'CAPITAL_LOSS'</li>
-	<li>'HOURS_PER_WEEK'</li>
+	<li>'DEBT'</li>
+	<li>'MARRIED'</li>
+	<li>'BANK_CUSTOMER'</li>
+	<li>'EDUCATION_LEVEL'</li>
+	<li>'YEARS_EMPLOYED'</li>
+	<li>'PRIOR_DEFAULT'</li>
+	<li>'EMPLOYED'</li>
+	<li>'INCOME'</li>
 </ol>
 
 </div>
@@ -13481,23 +13506,20 @@ In the final search using the entire training set:
 
 
 
-<div class="output_html rendered_html output_subarea ">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
 <ol class=list-inline>
+	<li>'GENDER'</li>
 	<li>'AGE'</li>
-	<li>'WORKCLASS'</li>
-	<li>'FNLWGT'</li>
-	<li>'EDUCATION'</li>
-	<li>'EDU_NUM'</li>
-	<li>'MARITAL_STATUS'</li>
-	<li>'OCCUPATION'</li>
-	<li>'RELATIONSHIP'</li>
-	<li>'RACE'</li>
-	<li>'SEX'</li>
-	<li>'CAPITAL_GAIN'</li>
-	<li>'CAPITAL_LOSS'</li>
-	<li>'HOURS_PER_WEEK'</li>
-	<li>'COUNTRY'</li>
+	<li>'DEBT'</li>
+	<li>'MARRIED'</li>
+	<li>'BANK_CUSTOMER'</li>
+	<li>'EDUCATION_LEVEL'</li>
+	<li>'YEARS_EMPLOYED'</li>
+	<li>'PRIOR_DEFAULT'</li>
+	<li>'EMPLOYED'</li>
+	<li>'CITIZEN'</li>
 	<li>'INCOME'</li>
+	<li>'APPROVED'</li>
 </ol>
 
 </div>
@@ -13520,8 +13542,8 @@ In the final search using the entire training set:
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">pred</span> <span class="o">&lt;-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">obj</span><span class="o">$</span><span class="n">fit</span> <span class="p">,</span><span class="n">newdata</span><span class="o">=</span><span class="n">testData</span><span class="p">)</span>
-<span class="nf">confusionMatrix</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">pred</span><span class="p">,</span> <span class="n">testData</span><span class="o">$</span><span class="n">INCOME</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">pred</span> <span class="o">&lt;-</span> <span class="nf">predict</span><span class="p">(</span><span class="n">obj</span><span class="o">$</span><span class="n">fit</span><span class="p">,</span><span class="n">newdata</span><span class="o">=</span><span class="n">testData</span><span class="p">)</span>
+<span class="nf">confusionMatrix</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">pred</span><span class="p">,</span> <span class="n">testData</span><span class="o">$</span><span class="n">APPROVED</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13543,29 +13565,29 @@ In the final search using the entire training set:
 <pre>Confusion Matrix and Statistics
 
           Reference
-Prediction   A   B
-         A  14   7
-         B  35 158
+Prediction No Yes
+       No  61   6
+       Yes 13  64
                                           
-               Accuracy : 0.8037          
-                 95% CI : (0.7441, 0.8547)
-    No Information Rate : 0.771           
-    P-Value [Acc &gt; NIR] : 0.1446          
+               Accuracy : 0.8681          
+                 95% CI : (0.8016, 0.9187)
+    No Information Rate : 0.5139          
+    P-Value [Acc &gt; NIR] : &lt;2e-16          
                                           
-                  Kappa : 0.3044          
+                  Kappa : 0.7366          
                                           
- Mcnemar&#39;s Test P-Value : 3.097e-05       
+ Mcnemar&#39;s Test P-Value : 0.1687          
                                           
-            Sensitivity : 0.28571         
-            Specificity : 0.95758         
-         Pos Pred Value : 0.66667         
-         Neg Pred Value : 0.81865         
-             Prevalence : 0.22897         
-         Detection Rate : 0.06542         
-   Detection Prevalence : 0.09813         
-      Balanced Accuracy : 0.62165         
+            Sensitivity : 0.8243          
+            Specificity : 0.9143          
+         Pos Pred Value : 0.9104          
+         Neg Pred Value : 0.8312          
+             Prevalence : 0.5139          
+         Detection Rate : 0.4236          
+   Detection Prevalence : 0.4653          
+      Balanced Accuracy : 0.8693          
                                           
-       &#39;Positive&#39; Class : A               
+       &#39;Positive&#39; Class : No              
                                           </pre>
 </div>
 
@@ -13594,7 +13616,7 @@ Prediction   A   B
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">p_2</span> <span class="o">&lt;-</span> <span class="s">&quot;C:/Users/01551610/Desktop/Advanced-Predictive-Modelling/Linear Regression/BostonRealEstate_Exercise.csv&quot;</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">p_2</span> <span class="o">&lt;-</span> <span class="s">&quot;./Analise_Preditiva_Avancada/GA/BostonRealEstateExercise.csv&quot;</span>
 <span class="n">df_2</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="n">file</span><span class="o">=</span> <span class="n">p_2</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;,&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -13627,10 +13649,8 @@ Prediction   A   B
 
 <div class="output_html rendered_html output_subarea ">
 <table>
-<caption>A df[,7]: 6 × 7</caption>
 <thead>
 	<tr><th scope=col>NBATH</th><th scope=col>CRIM</th><th scope=col>NROOMS</th><th scope=col>TAX</th><th scope=col>DISC</th><th scope=col>AGE</th><th scope=col>PRICE</th></tr>
-	<tr><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
 	<tr><td>3</td><td>0.81</td><td>5</td><td>70.19</td><td>111.03</td><td>70</td><td>111.03</td></tr>
@@ -13786,7 +13806,7 @@ Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</pre>
   function myFunction(){
     var x;
     x = document.getElementById("numb").value;
-    if (x == "33") {
+    if (x == "3327") {
       $( document ).ready($('div.input').show())
       $( document ).ready($('div.output').show())
     }
